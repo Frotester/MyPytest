@@ -1,7 +1,8 @@
 import requests
 from configuration import SERVICE_URL
 from src.baseclasses.Response import Response
-from src.json_schemas.post import POST_SCHEMA
+# from src.json_schemas.post import POST_SCHEMA
+from src.pydantic_schmas.post import Post
 
 # def test_equal():
 #     assert 1 == 1, "Number is not equal expected"
@@ -14,4 +15,4 @@ def test_getting_posts():
     response = requests.get(url=SERVICE_URL)
     response = Response(response)
 
-    response.assert_status_code(200).validate(POST_SCHEMA)
+    response.assert_status_code(200).validate(Post)
