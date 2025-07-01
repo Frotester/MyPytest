@@ -1,8 +1,9 @@
 import pytest
-from configuration import SERVICE_URL
 import requests
 
-# @pytest.fixture(scope='function')
+from configuration import SERVICE_URL
+
+# @pytest.ini.fixture(scope='function')
 # def say_hello():
 #     print("Hello")
 #     return 14
@@ -11,3 +12,4 @@ import requests
 def get_users():
     resp = requests.get(SERVICE_URL)
     return resp
+
