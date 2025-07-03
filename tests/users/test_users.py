@@ -13,10 +13,14 @@ def test_getting_users_list(get_users, make_number):
     # print(calculate(1, 1))
     # print(make_number)
 
+
 @pytest.mark.development
 @pytest.mark.production
 @pytest.mark.skip('[ISSUE-111] Issue with network connection')
 def test_another():
+    """
+    In that test we try to check that  is equal to 2
+    """
     assert 1 == 1
 
 
@@ -29,4 +33,14 @@ def test_another():
     ('b', 'b', None),
 ])
 def test_calculator(first_value, second_value, result, calculate):
+    """
+    In test we are testing calculating with different values (valid and invalid).
+    """
     assert calculate(first_value, second_value) == result
+
+
+@pytest.mark.development
+@pytest.mark.production
+def test_another_failing_test():
+    assert 1 == 2
+
