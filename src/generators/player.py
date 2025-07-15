@@ -1,4 +1,4 @@
-from src.enums.user_enams import Statuses
+from src.enums.user_enums import Statuses
 
 from src.generators.player_localization import PlayerLocalization
 from src.baseclasses.builder import BuilderBaseClass

@@ -1,5 +1,5 @@
 from pydantic import BaseModel, validator, field_validator
-from src.enums.user_enams import Genders, Statuses, UserErrors
+from src.enums.user_enums import Genders, StatusesLower, UserErrors
 
 
 class User(BaseModel):
@@ -7,12 +7,14 @@ class User(BaseModel):
     name: str
     email: str
     gender: Genders
-    status: Statuses
+    status: StatusesLower
 
-    @field_validator("email")
-    def chek_tnat_dog_presented_in_email_address(cls, email):
-        if "@" in email:
-            return email
-        else:
-            raise ValueError(UserErrors.WRONG_EMAIL.value)
+    # @field_validator("email")
+    # def cheсk_tnat_dog_presented_in_email_address(cls, email):
+    #     if "@" in email:
+    #         return email
+    #     else:
+    #         raise ValueError(UserErrors.WRONG_EMAIL.value)
+
+
 

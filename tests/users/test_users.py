@@ -1,9 +1,11 @@
 import pytest
 import requests
 
-from configuration import SERVICE_URL
+# from configuration import SERVICE_URL
 from src.baseclasses.Response import Response
 from src.schemas.user import User
+from src.schemas.computer import Computer
+from examples.example import computer
 
 
 def test_getting_users_list(get_users, make_number):
@@ -44,3 +46,7 @@ def test_calculator(first_value, second_value, result, calculate):
 def test_another_failing_test():
     assert 1 == 2
 
+
+def test_pydantic_object():
+    comp = Computer.model_validate(computer)
+    print(comp.detailed_info.physical.color.as_hex())

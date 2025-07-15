@@ -4,30 +4,33 @@ import requests
 from configuration import SERVICE_URL
 from src.baseclasses.Response import Response
 # from src.json_schemas.post import POST_SCHEMA
+from src.schemas.user import User
 from src.pydantic_schemas.post import Post
 
-# def test_equal():
-#     assert 1 == 1, "Number is not equal expected"
-#
-# def test_is_not_equal():
-#     assert 1 != 2, "Number is equal"
+from src.enums.user_enums import Statuses
 
 
-# def test_getting_posts():
-#     response = requests.get(url=SERVICE_URL)
-#     response = Response(response)
-#
-#     response.assert_status_code(200).validate(Post)
+def test_equal():
+    assert 1 == 1, "Number is not equal expected"
 
 
-# @pytest.mark.parametrize('status', [
-#     'ACTIVE',
-#     'BANNED',
-#     'DELETED',
-#     'INACTIVE'
-# ])
-# def test_something(status, get_player_generator):
-#     print(get_player_generator.build())
+def test_is_not_equal():
+    assert 1 != 2, "Number is equal"
+
+
+def test_getting_posts():
+    response = requests.get(url=SERVICE_URL)
+    response = Response(response)
+
+    response.assert_status_code(200).validate(User)
+
+
+@pytest.mark.parametrize('status', [
+    *Statuses.list()
+])
+def test_something(status, get_player_generator):
+    print(get_player_generator.build())
+
 
 @pytest.mark.parametrize('status', [
      'ACTIVE',
@@ -59,6 +62,7 @@ def test_something3(delete_key, get_player_generator):
     object_to_send = get_player_generator.build()
     del object_to_send[delete_key]
     print(object_to_send)
+
 
 @pytest.mark.parametrize("localizations, loc", [
     ("fr", "fr_FR")
