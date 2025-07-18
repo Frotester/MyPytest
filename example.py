@@ -1,3 +1,39 @@
+from db import session
+
+import tables
+
+# res = session.query(
+#     tables.Users.username, tables.Users.email
+# ).filter(
+#     tables.Users.age > 10,
+#     tables.Users.age < 27,
+# ).all()
+# print(res)
+
+res = session.query(
+    tables.Users.age
+).filter(
+    tables.Users.age > 1
+).subquery()
+print(res)
+
+
+# if res:
+#     print("All is good")
+# else:
+#     print("Not good")
+
+# res = session.query(
+#     tables.Users.username, tables.Users.email
+# ).first()
+# print(res)
+
+
+
+
+
+
+
 """
 Пример объекта на котором вы можете потренироваться, используя pydantic схемы.
 

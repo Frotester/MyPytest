@@ -1,10 +1,10 @@
 from pydantic import BaseModel, EmailStr
-from pydantic.types import PastDate, FutureDate, PaymentCardNumber
+from pydantic.types import PastDate, FutureDate
 from pydantic.networks import IPv4Address, IPv6Address
 from src.schemas.physical import Physical
 from typing import List
 from src.enums.user_enums import Statuses
-from examples.example import computer
+from example import computer
 from pydantic_extra_types.payment import PaymentCardNumber
 
 

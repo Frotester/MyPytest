@@ -1,11 +1,10 @@
 import pytest
-import requests
 
 # from configuration import SERVICE_URL
 from src.baseclasses.Response import Response
 from src.schemas.user import User
 from src.schemas.computer import Computer
-from examples.example import computer
+from example import computer
 
 
 def test_getting_users_list(get_users, make_number):
