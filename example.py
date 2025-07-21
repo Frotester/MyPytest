@@ -2,6 +2,9 @@ from db import session
 
 import tables
 
+from sqlalchemy.sql.expression import desc
+
+
 # res = session.query(
 #     tables.Users.username, tables.Users.email
 # ).filter(
@@ -14,7 +17,7 @@ res = session.query(
     tables.Users.age
 ).filter(
     tables.Users.age > 1
-).subquery()
+).order_by(desc(tables.Users.age)).limit(1).offset(3).all()
 print(res)
 
 
