@@ -1,6 +1,5 @@
 from sqlalchemy.orm import sessionmaker
-
-from sqlalchemy import  create_engine
+from sqlalchemy import create_engine
 
 from sqlalchemy.ext.declarative import declarative_base
 from configuration import CONNECTION_ROW
@@ -17,7 +16,7 @@ Session = sessionmaker(
     autocommit=False
 )
 
-session = Session()
+
 
 # import sqlite3
 #

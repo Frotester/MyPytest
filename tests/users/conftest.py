@@ -8,6 +8,7 @@ from configuration import SERVICE_URL
 #     print("Hello")
 #     return 14
 
+
 @pytest.fixture
 def get_users():
     resp = requests.get(SERVICE_URL)

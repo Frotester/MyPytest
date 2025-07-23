@@ -6,6 +6,7 @@ from src.baseclasses.Response import Response
 # from src.json_schemas.post import POST_SCHEMA
 from src.schemas.user import User
 from src.pydantic_schemas.post import Post
+import tables
 
 from src.enums.user_enums import Statuses
 
@@ -72,3 +73,32 @@ def test_something4(get_player_generator, localizations, loc):
         ['localize', localizations], PlayerLocalization(loc).set_number(10).build()
     ).build()
     print(object_to_send)
+
+
+def test_get_data_users(get_db_session):
+    data = get_db_session.query(tables.Users).first()
+    print(data.age)
+
+
+def test_try_to_delete_something(get_delete_method, get_db_session):
+    get_delete_method(get_db_session, tables.Users, (tables.Users.id == 1))
+
+
+def test_try_to_add_testdata(get_db_session, get_add_method):
+    new_item = {'username': 'Tihon', 'email': 'Tihon@mail.ru', 'age': 15}
+    item = tables.Users(**new_item)
+    get_add_method(get_db_session, item)
+    print(item)
+
+
+def test_try_to_add_testdata(
+        get_db_session, get_add_method, get_item_type_generator
+):
+
+    item = tables.ItemType(**get_item_type_generator.build())
+    get_add_method(get_db_session, item)
+    print(item.item_id)
+
+
+def test_try_to_add_testdata2(generate_item_type):
+    print(generate_item_type.item_id)
