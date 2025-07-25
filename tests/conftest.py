@@ -80,9 +80,9 @@ def generate_item_type(get_db_session,
     item = tables.ItemType(**get_item_type_generator.build())
     get_add_method(get_db_session, item)
     yield item
-    # get_delete_method(
-    #     get_db_session,
-    #     tables.ItemType,
-    #     (tables.ItemType.item_id == item.item_id)
-    # )
+    get_delete_method(
+        get_db_session,
+        tables.ItemType,
+        (tables.ItemType.item_id == item.item_id)
+    )
 
