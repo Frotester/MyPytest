@@ -23,8 +23,8 @@ class StatusesLower(PyEnum):
     INACTIVE = "INACTIVE".lower()
     MERGED = "MERGED".lower()
 
+
 class UserErrors(Enum):
     WRONG_EMAIL = "Email doesn't contail @"
 
 
-print(Statuses.list())

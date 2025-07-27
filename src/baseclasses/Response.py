@@ -1,6 +1,5 @@
-from jsonschema import validate
-from src.enums.global_enums import GlobalErrorMessages
 from pydantic.error_wrappers import ValidationError
+
 
 class Response:
 
@@ -31,7 +30,7 @@ class Response:
 
         return self
 
-    def get_parsed_onject(self):
+    def get_parsed_object(self):
         return self.parsed_object
 
     def __str__(self):
