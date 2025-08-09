@@ -86,3 +86,17 @@ def generate_item_type(get_db_session,
         (tables.ItemType.item_id == item.item_id)
     )
 
+
+def pytest_addoption(parser):
+    parser.addoption(
+        '--env',
+        default='development',
+        help='It is env variable where our tests will be run. Possible values:'
+             'prod, development(default), qa'
+    )
+
+
+@pytest.fixture(autouse=True)
+def getting_env(request):
+    env = request.config.getoption('--env')
+    yield env

@@ -100,3 +100,30 @@ def test_try_to_add_testdata(
 
 def test_try_to_add_testdata2(generate_item_type):
     print(generate_item_type.item_id)
+
+
+class Letter:
+
+    def __init__(self, letter, position):
+        self.letter = letter
+        self.position = position
+
+    def __str__(self):
+        return f"Letter {self.letter}, Position {self.position}"
+
+
+def get_cases():
+    return [
+        Letter('a', 1),
+        Letter('b', 2),
+    ]
+
+
+# [
+#     "1", "2", [1, 2, 3]
+# ]
+
+
+@pytest.mark.parametrize("my_value", get_cases(), ids=str)
+def test_my_magic_method(my_value):
+    print(my_value)
